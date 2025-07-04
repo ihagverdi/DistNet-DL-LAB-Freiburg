@@ -36,7 +36,7 @@ def main():
                         default=100, type=int)
     parser.add_argument("--fold", dest="fold", required=True, type=int)
     parser.add_argument("--save", dest="save", required=True)
-    parser.add_argument("--seed", dest="seed", required=False, default=1,
+    parser.add_argument("--seed", dest="seed", required=False, default=100,
                         type=int)
     parser.add_argument("--wclim", dest="wclim", required=False, default=60*59,
                         type=int)
@@ -166,8 +166,8 @@ def main():
             # Construct training data
             import keras.backend as K
             import tensorflow as T
-            cfg = T.ConfigProto(intra_op_parallelism_threads=1,
-                                inter_op_parallelism_threads=1)
+            cfg = T.ConfigProto(intra_op_parallelism_threads=16,
+                                inter_op_parallelism_threads=4)
             session = T.Session(config=cfg)
             K.set_session(session)
             y_train_mean = np.mean(y_train, axis=1, keepdims=True)
@@ -199,8 +199,8 @@ def main():
             if "nn" in model_name:
                 import keras.backend as K
                 import tensorflow as T
-                cfg = T.ConfigProto(intra_op_parallelism_threads=1,
-                                    inter_op_parallelism_threads=1)
+                cfg = T.ConfigProto(intra_op_parallelism_threads=16,
+                                    inter_op_parallelism_threads=4)
                 session = T.Session(config=cfg)
                 K.set_session(session)
                 if model_name == "invgauss_nn":
