@@ -2,3 +2,8 @@ data/
 .idea/
 *pycache*
 *checkpoints*
+paper_repr_table4/
+paper_repr_table3/
+table3.sh
+table4.sh
+dummy/

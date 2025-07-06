@@ -229,7 +229,7 @@ def main():
                 while retry > 0:
                     model = model_hdl(config=config, n_inputs=X_train.shape[1],
                                       expected_num_epochs=args.epochs,
-                                      early_stopping=False, verbose=0)
+                                      early_stopping=False, verbose=1)
 
                     print("Start training")
                     model.train(X_train=X_trn_flat, y_train=y_trn_flat,
