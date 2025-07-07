@@ -5,6 +5,7 @@ import sys
 
 import numpy as np
 from sklearn.model_selection import KFold
+import torch
 
 sys.path.append("../")
 from helper import load_data, preprocess, data_source_release
@@ -146,6 +147,10 @@ def main():
             model.batch_size = args.batch_size  # Set batch size
             print("Start training log-normal neural network")
             model.train(X_train=X_trn_flat, y_train=y_trn_flat)
+            try:
+                model.model.load_state_dict(torch.load('best_model.pt'))
+            except FileNotFoundError:
+                print("No pre-trained model found, training from scratch.")
             print("Finished training")
             
             tra_pred = model.predict(X_train)

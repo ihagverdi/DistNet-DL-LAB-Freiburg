@@ -233,7 +233,7 @@ def main():
 
                     print("Start training")
                     model.train(X_train=X_trn_flat, y_train=y_trn_flat,
-                                X_valid=X_trn_flat, y_valid=y_trn_flat,
+                                X_valid=X_vld_flat, y_valid=y_vld_flat,
                                 n_epochs=args.epochs, time_limit_s=args.wclim)
                     print("Finished")
                     tra_pred = model.predict(X_train)
