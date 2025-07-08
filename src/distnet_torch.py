@@ -119,7 +119,7 @@ class DistNetModel:
                 if val_loss < best_val - 1e-4:
                     best_val = val_loss
                     no_improve = 0
-                    torch.save(self.model.state_dict(), 'best_model.pt')
+                    torch.save(self.model.state_dict(), 'best_model_checkpoint.pt')
                 else:
                     no_improve += 1
                 if no_improve >= self.patience:

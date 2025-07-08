@@ -40,6 +40,9 @@ def main():
     # 2) Setup paths and info - fixed for lognormal_nn.floc
     model_name = "lognormal_nn"
     task = "floc"
+    # directory format figure4_args.num_train_samples; create directory if it does not exist
+    if not os.path.exists(args.save):
+        os.makedirs(args.save)
     save_path = os.path.join(args.save, "%s.%s.%s.%d.%d.pkl" % (args.scenario,
                                                                 task, model_name,
                                                                 args.fold,
@@ -148,7 +151,7 @@ def main():
             print("Start training log-normal neural network")
             model.train(X_train=X_trn_flat, y_train=y_trn_flat)
             try:
-                model.model.load_state_dict(torch.load('best_model.pt'))
+                model.model.load_state_dict(torch.load('best_model_checkpoint.pt'))
             except FileNotFoundError:
                 print("No pre-trained model found, training from scratch.")
             print("Finished training")
