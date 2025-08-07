@@ -1,6 +1,6 @@
 # Neural Network for Distribution prediction
 
-This is the repository accompanying the paper _Neural Networks for Predicting Algorithm Runtime Distributions_.
+This is the repository for the Advanced Deep Learning Lab SS25 project: Predicting Runtime Distributions with TabPFN.
 
 ```
 @proceedings{eggensperger-ijcai18,
