@@ -10,10 +10,6 @@ This is the repository for the Advanced Deep Learning Lab SS25 project: Predicti
   year      = {2018}
 }
 ```
-
-It includes scripts and notebooks for running the experiments shown in the paper.
-This code has been written and tested with *Python 3.5*; all dependencies are listed in _requirements.txt_
-
 # Data
 
 The data used to train the networks can be found [here](http://www.ml4aad.org/wp-content/uploads/2018/04/DistNetData.zip).
